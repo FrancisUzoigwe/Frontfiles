@@ -3,7 +3,7 @@ import { mainRoute } from "./router/mainRoute";
 
 const App = () => {
   return (
-    <div>
+    <div className="font-Poppins">
       <RouterProvider router={mainRoute} />
     </div>
   );
