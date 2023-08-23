@@ -69,9 +69,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      // <AdminRoute>
+      <AdminRoute>
         <AdminLayout />
-      // </AdminRoute>
+      </AdminRoute>
     ),
     children: [
       {
