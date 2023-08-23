@@ -7,6 +7,7 @@ import MainLayout from "../components/common/MainLayout";
 import HomeScreen from "../pages/screen/HomeScreen";
 import ViewScreen from "../pages/screen/ViewScreen";
 import ErrorPage from "../error/Error";
+import PrivateRoute from "./PrivateRoute";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ export const mainRoute = createBrowserRouter([
   },
   {
     path: "/access",
-    element: <MainLayout />,
+    element: (
+      <PrivateRoute>
+        <MainLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/access/home",

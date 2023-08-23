@@ -9,17 +9,17 @@ const FirstHeader = () => {
   const onScroll = () => {
     setScroll(scroll)
 
-    if(window.scrollY >= 60 ){
+    if(window.scrollY >= 40 ){
       setScroll(true)
     }else{
       setScroll(false)
     }
   }
-  window.addEventListener("scrool", onScroll)
+  window.addEventListener("scroll", onScroll)
   return (
     <div>
       {
-        scroll? <div className="w-full h-[60px] flex items-center justify-center  fixed bg-gray-400">
+        scroll? <div className="w-full h-[60px] flex items-center justify-center  fixed bg-black duration-700 z-10 text-white">
         <div className="w-[93%] h-[50px] flex justify-between items-center screen-">
             <div className="flex items-center justify-center">
                 <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center"><GiLaurelCrown className ="w-[35px] h-[35px] "/></div>
@@ -30,7 +30,7 @@ const FirstHeader = () => {
                 <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Signin</Link>
             </div>
         </div>
-    </div> : <div className="w-full h-[60px] flex items-center justify-center  fixed">
+    </div> : <div className="w-full h-[60px] flex items-center justify-center  fixed z-10">
         <div className="w-[93%] h-[50px] flex justify-between items-center screen-">
             <div className="flex items-center justify-center">
                 <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center"><GiLaurelCrown className ="w-[35px] h-[35px] "/></div>

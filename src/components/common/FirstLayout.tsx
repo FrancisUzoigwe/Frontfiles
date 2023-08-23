@@ -1,3 +1,4 @@
+import SecondPart from "../props/SecondPart"
 import FirstHeader from "../static/FirstHeader"
 import {Outlet} from "react-router-dom"
 
@@ -6,6 +7,7 @@ const FirstLayout = () => {
     <div>
         <FirstHeader/>
         <Outlet/>
+        <SecondPart/>
     </div>
   )
 }

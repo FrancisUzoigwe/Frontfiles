@@ -105,7 +105,7 @@ const LandingPage = () => {
               follow timelines, assign tasks and keep your projects in check.
             </div>
             <div className="w-full h-[auto] flex items-center mt-[20px]">
-              <div className="w-[270px] h-[80px] flex items-center justify-between">
+              <div className="w-[260px] h-[80px] flex items-center justify-between">
                 <Link
                   to="/signin"
                   className=" px-6 py-2 bg-black text-white rounded-[20px] font-Poppins mt-[17px]"
