@@ -1,26 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
-    <div className="w-full h-auto flex justify-center flex-col bg-black">
-     <div className="w-[93%] h-auto flex justify-center items-center font-semibold uppercase ">
-       <div className="w-[50%] h-[60px] bg-[#7E22CE] text-white flex justify-center items-center mt-[-25px] border-collapse">
-       <div className="text-[20px]">Get your projects started here!</div>
-       </div>
-     </div>
-     <div className="w-full h-[auto] flex  items-center mx-[300px] mt-5  cursor-pointer ">
-        <div className="text-white  text-[30px]">CUSTOMER
-        <div  className="text-white text-[15px]">admin</div>
-        <div className="text-white text-[15px]">user</div>
+    <div className="w-full h-auto flex justify-center flex-col items-center bg-black">
+        <div className="text-white flex items-center justify-center w-[45%] h-[65px] bg-purple-700 mt-[-30px]">
+          <div className="uppercase">Want to see your team's progress? <Link to="/admin/signup" className="underline  ml-[10px]">Sign Up as an admin</Link></div>
         </div>
-        <div className="w-full h-[auto] flex justify-center items-center text-[white] mt-[5px] font-bold">COMPANY
-            <div className="text-white  text-[15px] flex-col">ABOUT US </div>
-            <div className="text-white  text-[15px] flex-col" >CARRERS</div>
-            <div className="text-white  text-[15px]">CONTACT US</div>
-        </div>
-     </div>
-     <div className="w-full h-[auto] flex justify-start items-center" >
-        <div className="text-white  font-bold text-[30px]">Monao</div>
-     </div>
-
     </div>
   );
 };

@@ -60,11 +60,11 @@ const SecondPart = () => {
           </div>
           <div className="w-[49%] h-[330px] rounded-[30px] bg-right flex items-center justify-around border bg-gray-100">
             <div className="w-[250px] h-[260px] rounded-[20px] flex-col flex items-center justify-center">
-              <div className="w-[230px] h-[80px] bg-gray-500 mb-[20px] rounded-[20px] flex items-center justify-evenly">
-                <div className="w-[50px] h-[50px] rounded-[50%] bg-white flex items-center justify-center">
-                  <RiSecurePaymentLine className="w-[30px] h-[30px]" />
+              <div className="w-[auto] h-[80px] bg-gray-500 mb-[20px] rounded-[20px] flex items-center justify-evenly">
+                <div className="w-[55px] h-[50px] rounded-[50%] bg-white flex items-center justify-center ml-[20px]">
+                  <RiSecurePaymentLine className="w-[30px] h-[30px] " />
                 </div>
-                <div className="font-medium mr[30px] text-white">Tested & Secured</div>
+                <div className="font-medium text-white text-[13px] ml-[20px]">Tested, Secured & Collaborative.</div>
               </div>
               <img
                 className="w-[230px] h-[150px] bg-gray-200 rounded-[20px] object-cover"
