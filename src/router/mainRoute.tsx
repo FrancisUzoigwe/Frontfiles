@@ -15,6 +15,7 @@ import AdminView from "../pages/admin/AdminView";
 import AdminScreen from "../pages/admin/AdminScreen";
 import AdminLayout from "../components/common/AdminLayout";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -68,9 +69,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      <PrivateRoute>
+      <AdminRoute>
         <AdminLayout />
-      </PrivateRoute>
+      </AdminRoute>
     ),
     children: [
       {
