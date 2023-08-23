@@ -8,6 +8,7 @@ import HomeScreen from "../pages/screen/HomeScreen";
 import ViewScreen from "../pages/screen/ViewScreen";
 import ErrorPage from "../error/Error";
 import PrivateRoute from "./PrivateRoute";
+import CreateTask from "../pages/screen/CreateTask";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -31,9 +32,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/access",
     element: (
-      <PrivateRoute>
+      // <PrivateRoute>
         <MainLayout />
-      </PrivateRoute>
+      // </PrivateRoute>
     ),
     children: [
       {
@@ -44,6 +45,10 @@ export const mainRoute = createBrowserRouter([
         path: "/access/view",
         element: <ViewScreen />,
       },
+      {
+        path: "/access/create",
+        element: <CreateTask/>
+      }
     ],
   },
   {

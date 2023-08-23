@@ -20,7 +20,7 @@ const FirstHeader = () => {
     <div>
       {
         scroll? <div className="w-full h-[60px] flex items-center justify-center  fixed bg-black duration-700 z-10 text-white">
-        <div className="w-[93%] h-[50px] flex justify-between items-center screen-">
+        <div className="w-[93%] h-[50px] flex justify-between items-center ">
             <div className="flex items-center justify-center">
                 <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center"><GiLaurelCrown className ="w-[35px] h-[35px] "/></div>
                 <div className="ml-[7px] font-Poppins mt-[3px]">Monao</div>
