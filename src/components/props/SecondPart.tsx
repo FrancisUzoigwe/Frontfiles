@@ -46,8 +46,8 @@ const SecondPart = () => {
             className="w-[24%] h-[330px] rounded-[30px] relative flex items-end justify-center object-cover overflow-hidden"
             src={project}
             alt="project"
-          ></img>
-          <div className="absolute w-[60px] h-[60px] bg-black rounded-[140px] mb-[250px] ml-[540px] flex items-center justify-center">
+          />
+          <div className="absolute w-[60px] h-[60px] bg-black rounded-[140px] mb-[250px] ml-[520px] flex items-center justify-center">
             <div>
               <AiOutlineCloudUpload className="w-[30px] h-[30px] text-white" />
             </div>

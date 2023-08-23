@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import AdminHeader from "../static/AdminHeader";
 import Sider from "../static/Sider";
+import FootProps from "../props/FootProps";
 
 const AdminLayout = () => {
   return (
@@ -10,6 +11,7 @@ const AdminLayout = () => {
         <Sider />
         <Outlet />
       </div>
+        <FootProps hidden="hidden"/>
     </div>
   );
 };

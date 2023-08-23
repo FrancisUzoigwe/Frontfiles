@@ -1,7 +1,7 @@
 import SecondPart from "../props/SecondPart"
 import FirstHeader from "../static/FirstHeader"
 import {Outlet} from "react-router-dom"
-import Footer from "../static/Footer"
+import FootProps from "../props/FootProps"
 
 const FirstLayout = () => {
   return (
@@ -9,7 +9,7 @@ const FirstLayout = () => {
         <FirstHeader/>
         <Outlet/>
         <SecondPart/>
-        <Footer/>
+        <FootProps/>
     </div>
   )
 }

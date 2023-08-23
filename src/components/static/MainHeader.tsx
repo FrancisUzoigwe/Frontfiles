@@ -39,7 +39,7 @@ const onHover = () => {
             </div> */}
             <div className="flex items-center cursor-pointer" onMouseEnter={onHover} onMouseLeave={onHover}>
               {
-                hover? <div className="absolute bg-gray-700 text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">Logout</div>: null
+                hover? <div className="absolute bg-slate-100 text-black px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">Logout</div>: null
               }
               <div className="w-[40px] h-[40px] rounded-[50%] bg-white mr-[5px] flex items-center justify-center">Img</div>
               <div className="font-semibold text-[13px] ml-[px] ">Username</div>
