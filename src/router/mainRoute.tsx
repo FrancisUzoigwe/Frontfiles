@@ -81,7 +81,7 @@ export const mainRoute = createBrowserRouter([
         element: <AdminScreen />,
       },
       {
-        path: "/admin/view",
+        path: "/admin/users",
         element: <AdminView />,
       },
       {
@@ -89,7 +89,7 @@ export const mainRoute = createBrowserRouter([
         element: <AdminTasks />,
       },
       {
-        path: "/admin/progress",
+        path: "progress/admin/",
         element: <AdminProgress />,
       },
     ],
