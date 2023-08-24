@@ -33,23 +33,15 @@ const MainHeader = () => {
               </div>
               <div className="ml-[7px] font-Poppins mt-[3px]">Monao</div>
             </div>
-            <div className="w-[80%] h-[40px] flex items-center justify-end">
-              <div>Create task </div>
-           
-            </div>
-            <div
-              className="flex items-center cursor-pointer"
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
-            >
-              {hover ? (
-                <div className="absolute bg-gray-700 text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">
-                  Logout
-                </div>
-              ) : null}
-              <div className="w-[40px] h-[40px] rounded-[50%] bg-white mr-[5px] flex items-center justify-center">
-                Img
-              </div>
+            {/* <div className="cursor-pointe">About Us</div> */}
+            {/* <div>
+                <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Logout</Link>
+            </div> */}
+            <div className="flex items-center cursor-pointer" onMouseEnter={onHover} onMouseLeave={onHover}>
+              {
+                hover? <div className="absolute bg-gray-700 text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">Logout</div>: null
+              }
+              <div className="w-[40px] h-[40px] rounded-[50%] bg-white mr-[5px] flex items-center justify-center">Img</div>
               <div className="font-semibold text-[13px] ml-[px] ">Username</div>
               <div>
                 <MdOutlineArrowDropDown />
