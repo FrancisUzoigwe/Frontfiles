@@ -19,12 +19,10 @@ const Sider = () => {
           <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center">
             <GiLaurelCrown className="w-[35px] h-[35px] " />
           </div>
-         <Link to="/admin/view">
-         <div className="ml-[7px] font-Poppins mt-[3px] text-[14px]">
+          <div className="ml-[7px] font-Poppins mt-[3px] text-[14px]">
             View Users
-          </div></Link>
+          </div>
         </div>
-        <Link to="/admin/progress">
         <div className="flex items-center justify-center mt-[60px] cursor-pointer">
           <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center">
             <GiLaurelCrown className="w-[35px] h-[35px] " />
@@ -33,8 +31,6 @@ const Sider = () => {
             View Progress
           </div>
         </div>
-        </Link>
-        <Link to="/admin/task">
         <div className="flex items-center justify-center mt-[60px] cursor-pointer">
           <div className="w-[35px] h-[35px] rounded-[50%] overflow-hidden flex items-center justify-center">
             <GiLaurelCrown className="w-[35px] h-[35px] " />
@@ -43,7 +39,6 @@ const Sider = () => {
             View Tasks
           </div>
         </div>
-        </Link>
       </div>
       <div className="w-[200px] mt-[90px]">
         <div className="mt-[60px] flex flex-col items-center w-[full] h-[130px] ">
