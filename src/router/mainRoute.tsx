@@ -7,7 +7,6 @@ import MainLayout from "../components/common/MainLayout";
 import HomeScreen from "../pages/screen/HomeScreen";
 import ViewScreen from "../pages/screen/ViewScreen";
 import ErrorPage from "../error/Error";
-// import PrivateRoute from "./PrivateRoute";
 import CreateTask from "../pages/screen/CreateTask";
 import AdminSignin from "../pages/admin/AdminSignin";
 import AdminSignup from "../pages/admin/AdminSignup";

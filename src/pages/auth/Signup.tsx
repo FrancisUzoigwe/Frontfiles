@@ -3,51 +3,57 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import pix from "../../assets/man.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { RegisterAPI } from "../../apis/UserAuthAPI";
 
 const Signup = () => {
-  const schema = yup.object({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .required("Email is required")
-      .email("Invalid email format"),
-    password: yup
-      .string()
-      .required("Password is required")
-      .min(8, "Password must be at least 8 characters"),
-    confirm: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
-  });
-
-  const onHandleImage = (e: any) => {
-    const localImage = e.target.files[0];
+  const navigate = useNavigate();
+  const [image, setImage] = useState<string>(pix);
+  const [avatar, setAvatar] = useState<string>("");
+  const onHandleImage = (event: any) => {
+    const localImage = event.target.files[0];
     const saveImage = URL.createObjectURL(localImage);
     setImage(localImage);
     setAvatar(saveImage);
-    console.log(image);
   };
-
-  const [image, setImage] = useState("");
-  const [avatar, setAvatar] = useState(pix);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
+  const Schema = yup.object({
+    name: yup.string().required(),
+    email: yup.string().required(),
+    password: yup.string().required(),
+    confirm: yup.string().oneOf([yup.ref("password")]),
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Handle form submission here
-  };
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+  } = useForm({
+    resolver: yupResolver(Schema),
+  });
 
+  const onHandleSubmission = handleSubmit((data: any) => {
+    const { name, email, password } = data;
+
+    const myForms = new FormData();
+    myForms.append("name", name);
+    myForms.append("email", email);
+    myForms.append("password", password);
+    myForms.append("avatar", image);
+    // console.log("result",myForms)
+
+    RegisterAPI(myForms).then((res) => {
+      console.log("result",res)
+      // navigate("/signin");
+    });
+  });
   return (
     <div className="h-screen bg-blue-50 flex justify-center items-center overflow-hidden">
       <div className="h-full w-full relative">
         <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center">
-          <div className="h-[580px] w-[800px] bg-white flex rounded-[30px] shadow-md relative">
+          <form
+            onSubmit={onHandleSubmission}
+            className="h-[580px] w-[800px] bg-white flex rounded-[30px] shadow-md relative"
+          >
             {/* Gradient Background */}
             <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-75 z-[-1] rounded-[30px]"></div>
 
@@ -56,7 +62,7 @@ const Signup = () => {
               <div className="flex flex-col items-center">
                 <img
                   className="w-[300px] h-[300px] border-[50%] object-cover rounded-[50%] border-[purple] border-[4px]"
-                  src={avatar}
+                  src={avatar ? avatar : image}
                   alt="Avatar"
                 />
                 <label
@@ -77,7 +83,7 @@ const Signup = () => {
             </div>
             <div className="h-[550px] w-[400px] p-8">
               <h1 className="font-semibold text-3xl mb-6">Get Started</h1>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <div>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold">Name</label>
                   <input
@@ -86,10 +92,11 @@ const Signup = () => {
                     placeholder="Enter your Name"
                     {...register("name")}
                   />
-                  {errors.name && (
-                    <p className="text-rose-500 text-sm">
-                      {errors.name.message}
-                    </p>
+
+                  {errors.name?.message && (
+                    <span className="text-rose-500 text-[12px]">
+                      fill in your name credentials
+                    </span>
                   )}
                 </div>
                 <div className="mb-4">
@@ -100,11 +107,11 @@ const Signup = () => {
                     placeholder="Enter your Email"
                     {...register("email")}
                   />
-                  {errors.email && (
-                    <p className="text-rose-500 text-sm">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  {errors.email?.message && (
+                    <span className="text-rose-500 text-[12px]">
+                      fill in your email credentials
+                    </span>
+                  )}{" "}
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold">
@@ -116,11 +123,11 @@ const Signup = () => {
                     placeholder="Enter your Password"
                     {...register("password")}
                   />
-                  {errors.password && (
-                    <p className="text-rose-500 text-sm">
-                      {errors.password.message}
-                    </p>
-                  )}
+                  {errors.password?.message && (
+                    <span className="text-rose-500 text-[12px]">
+                      fill in your password credentials
+                    </span>
+                  )}{" "}
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold">
@@ -132,11 +139,11 @@ const Signup = () => {
                     placeholder="Confirm your Password"
                     {...register("confirm")}
                   />
-                  {errors.confirm && (
-                    <p className="text-rose-500 text-sm">
-                      {errors.confirm.message}
-                    </p>
-                  )}
+                  {errors.confirm?.message && (
+                    <span className="text-rose-500 text-[12px]">
+                      retype your password
+                    </span>
+                  )}{" "}
                 </div>
                 <button
                   className="py-2 px-8 bg-blue-950 text-white rounded-md hover:scale-[1.02] hover:cursor-pointer transition-all ml-24 "
@@ -144,7 +151,7 @@ const Signup = () => {
                 >
                   Register
                 </button>
-              </form>
+              </div>
               <div className="my-4">
                 <hr />
               </div>
@@ -159,7 +166,7 @@ const Signup = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

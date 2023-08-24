@@ -2,9 +2,14 @@ import * as yup from "yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { user } from "../../global/GlobalState";
+import { SigninAPI } from "../../apis/UserAuthAPI";
+import { useDispatch } from "react-redux";
 
 const Signin = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const schema = yup.object({
     name: yup.string().required("Name is required"),
     email: yup
@@ -26,10 +31,13 @@ const Signin = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Handle form submission here
-  };
+  const onSubmit = handleSubmit((data: any) => {
+    const { email, password } = data;
+    SigninAPI({ email, password }).then((res: any) => {
+      dispatch(user(res));
+      navigate("/access/home");
+    });
+  });
 
   return (
     <div className="h-[100vh] bg-blue-50 flex justify-center items-center">
@@ -39,7 +47,7 @@ const Signin = () => {
             <h1 className="font-semibold text-3xl mt-[-25px] ml-[50px]">
               WELCOME BACK
             </h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-semibold">Email</label>
                 <input
@@ -78,7 +86,10 @@ const Signin = () => {
                   </button>
                   <div className="text-[14px] flex mt-[3px]">
                     Hava an account ?{" "}
-                    <Link to="/signup" className="text-red-400  ml-[7px] underline">
+                    <Link
+                      to="/signup"
+                      className="text-red-400  ml-[7px] underline"
+                    >
                       Signup
                     </Link>
                   </div>
