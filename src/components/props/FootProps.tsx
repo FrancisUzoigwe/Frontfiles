@@ -116,7 +116,7 @@ const FootProps: React.FC<iHidden> = ({hidden}) => {
       </div>
       <div className="w-full h-[auto] flex items-center justify-center">
         <div className="w-[93%] h-[20px] flex items-center justify-end">
-        <div className="text-white text-[12px]">2023 all @rights reserved</div>
+        <div className="text-white text-[12px] hover:text-gray-400 duration-300 cursor-pointer">CodeLab Set07 team productivity tool ©️all rights reserved </div>
         </div>
       </div>
     </div>

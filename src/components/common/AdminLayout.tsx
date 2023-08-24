@@ -6,12 +6,14 @@ import FootProps from "../props/FootProps";
 const AdminLayout = () => {
   return (
     <div>
-      <AdminHeader />
-      <div className="flex">
+      <div className="flex ">
         <Sider />
+      <div className="">
+      {/* <AdminHeader /> */}
         <Outlet />
       </div>
-        <FootProps hidden="hidden"/>
+    </div>
+        {/* <FootProps hidden="hidden"/> */}
     </div>
   );
 };

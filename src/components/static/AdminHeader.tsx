@@ -1,7 +1,10 @@
+import React from 'react'
 
 const AdminHeader = () => {
   return (
-    <div>AdminHeader</div>
+    <div className='w-[1196px] h-[60px] flex justify-center bg-red-400 items-center'>
+      <div>Hello</div>
+    </div>
   )
 }
 

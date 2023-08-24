@@ -16,6 +16,8 @@ import AdminScreen from "../pages/admin/AdminScreen";
 import AdminLayout from "../components/common/AdminLayout";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import AdminTasks from "../pages/admin/AdminTasks";
+import AdminProgress from "../pages/admin/AdminProgress";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/admin/view",
         element: <AdminView />,
+      },
+      {
+        path: "/admin/task",
+        element: <AdminTasks />,
+      },
+      {
+        path: "/admin/progress",
+        element: <AdminProgress />,
       },
     ],
   },
