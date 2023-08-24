@@ -94,7 +94,7 @@ const SecondPart = () => {
                 </div>
                 <div className="mt-[18px]">
                   <Link
-                    to="/signup"
+                    to="/ask"
                     style={{
                       padding: "7px 17px",
                       borderRadius: "8px",

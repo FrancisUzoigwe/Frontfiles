@@ -18,6 +18,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AdminTasks from "../pages/admin/AdminTasks";
 import AdminProgress from "../pages/admin/AdminProgress";
+import Ask from "../pages/auth/Ask";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const mainRoute = createBrowserRouter([
         element: <LandingPage />,
       },
     ],
+  },
+  {
+    path: "/ask",
+    element: <Ask/>
   },
   {
     path: "/signin",

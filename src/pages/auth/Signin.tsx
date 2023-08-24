@@ -36,7 +36,7 @@ const Signin = () => {
       <div className="h-[300px] w-[400px] bg-white flex rounded-[30px] shadow-md flex-col  items-center">
         <div className="h-[550px] w-[400px] justify-center items-center flex flex-col ">
           <div className="h-[550px] w-[400px] p-8 flex flex-col">
-            <h1 className="font-semibold text-3xl  ml-[50px]">
+            <h1 className="font-semibold text-3xl mt-[-25px] ml-[50px]">
               WELCOME BACK
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>

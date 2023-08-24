@@ -27,7 +27,7 @@ const FirstHeader = () => {
             </div>
             <div className="cursor-pointe">About Us</div>
             <div>
-                <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Signin</Link>
+                <Link to="/ask" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Signin</Link>
             </div>
         </div>
     </div> : <div className="w-full h-[60px] flex items-center justify-center  fixed z-10">
@@ -38,7 +38,7 @@ const FirstHeader = () => {
             </div>
             <div className="cursor-pointe">About Us</div>
             <div>
-                <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Signin</Link>
+                <Link to="/ask" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Signin</Link>
             </div>
         </div>
     </div>

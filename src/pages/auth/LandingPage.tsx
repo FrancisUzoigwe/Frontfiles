@@ -107,13 +107,13 @@ const LandingPage = () => {
             <div className="w-full h-[auto] flex items-center mt-[10px]">
               <div className="w-[260px] h-[80px] flex items-center justify-between">
                 <Link
-                  to="/signin"
+                  to="/ask"
                   className=" px-6 py-2 bg-black text-white rounded-[20px] mb-[25px] font-Poppins "
                 >
                   Signin
                 </Link>
                 <Link
-                  to="/signup"
+                  to="/ask"
                   className=" px-6 py-2 bg-purple-700 text-white font-Poppins rounded-[20px] mb-[25px] "
                 >
                   Get Started
