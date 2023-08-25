@@ -94,6 +94,9 @@ const FootProps: React.FC<iHidden> = ({hidden}) => {
             <div className="text-[12px] hover:text-gray-400 duration-300 cursor-pointer mt-2 text-left">
               Jonathan Wisdom
             </div>
+            <div className="text-[12px] hover:text-gray-400 duration-300 cursor-pointer mt-2 text-left">
+              Blessing Chukwuyenum
+            </div>
           </div>
         </div>
       </div>
