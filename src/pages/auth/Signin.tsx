@@ -30,7 +30,7 @@ const Signinscreen = () => {
     console.log(data);
     SigninAPI({ email, password }).then((res: any) => {
       dispatch(user(res));
-      navigate("/access/home");
+      navigate("/access/create");
     });
   });
 

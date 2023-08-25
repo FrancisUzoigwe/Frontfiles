@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import AdminTasks from "../pages/admin/AdminTasks";
 import AdminProgress from "../pages/admin/AdminProgress";
 import Ask from "../pages/auth/Ask";
+import ViewProgress from "../pages/screen/ViewProgress";
+import ViewTasks from "../pages/screen/ViewTasks";
 // import UserLayOut from "../components/common/UserLayOut";
 
 export const mainRoute = createBrowserRouter([
@@ -68,9 +70,16 @@ export const mainRoute = createBrowserRouter([
         element: <ViewScreen />,
       },
       {
-        index: true,
         path: "/access/create",
         element: <CreateTask />,
+      },
+      {
+        path: "/access/progress",
+        element: <ViewProgress/>,
+      },
+      {
+        path: "/access/task",
+        element: <ViewTasks/>,
       },
     ],
   },
