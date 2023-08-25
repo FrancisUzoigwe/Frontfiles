@@ -34,8 +34,7 @@ const LandingPage = () => {
               .pauseFor(1500)
               .deleteAll()
               .start();
-          }}
-        />
+          }}/>
                 </div>
                 <div className="flex items-center mt-[10px] px-4 py-2 rounded-[20px]  bg-white text-[gray] text-[14px] font-semibold">
                   <div>
