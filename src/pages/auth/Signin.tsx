@@ -1,26 +1,19 @@
-import * as yup from "yup";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { user } from "../../global/GlobalState";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { SigninAPI } from "../../apis/UserAuthAPI";
 import { useDispatch } from "react-redux";
+import { user } from "../../global/GlobalState";
+import auth from "../../assets/auth.webp"
 
-const Signin = () => {
+const Signinscreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const schema = yup.object({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .required("Email is required")
-      .email("Invalid email format"),
-    password: yup
-      .string()
-      .required("Password is required")
-      .min(8, "Password must be at least 8 characters"),
-    confirm: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
+
+  const Schema = yup.object({
+    email: yup.string().required().email(),
+    password: yup.string().required(),
   });
 
   const {
@@ -28,79 +21,83 @@ const Signin = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(Schema),
   });
 
-  const onSubmit = handleSubmit((data: any) => {
+  const onSubmit = handleSubmit(async (data) => {
     const { email, password } = data;
+
+    console.log(data);
     SigninAPI({ email, password }).then((res: any) => {
-      dispatch(user(res));
-      navigate("/access/home");
+      if (res) {
+        dispatch(user(res));
+        navigate("/access/home");
+      }
     });
   });
 
   return (
-    <div className="h-[100vh] bg-blue-50 flex justify-center items-center">
-      <div className="h-[300px] w-[400px] bg-white flex rounded-[30px] shadow-md flex-col  items-center">
-        <div className="h-[550px] w-[400px] justify-center items-center flex flex-col ">
-          <div className="h-[550px] w-[400px] p-8 flex flex-col">
-            <h1 className="font-semibold text-3xl mt-[-25px] ml-[50px]">
-              WELCOME BACK
-            </h1>
-            <form onSubmit={onSubmit}>
-              <div className="mb-4">
-                <label className="block text-sm font-semibold">Email</label>
-                <input
-                  type="text"
-                  className="w-full border p-2 rounded shadow-md"
-                  placeholder="Enter your Email"
-                  {...register("email")}
-                />
-                {errors.email && (
-                  <p className="text-rose-500 text-sm">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-semibold">Password</label>
-                <input
-                  type="password"
-                  className="w-full border p-2 rounded shadow-md"
-                  placeholder="Enter your Password"
-                  {...register("password")}
-                />
-                {errors.password && (
-                  <p className="text-rose-500 text-sm">
-                    {errors.password.message}
-                  </p>
-                )}
-              </div>
-              <div className="w-full flex justify-center items-center flex-col">
-                <div className="w-[70%] h-[auto] flex flex-col items-center justify-center">
-                  <button
-                    className="py-2 px-8 bg-blue-950 text-white rounded-md hover:scale-[1.02] hover:cursor-pointer transition-all "
-                    type="submit"
-                  >
-                    Signin
-                  </button>
-                  <div className="text-[14px] flex mt-[3px]">
-                    Hava an account ?{" "}
-                    <Link
-                      to="/signup"
-                      className="text-red-400  ml-[7px] underline"
-                    >
-                      Signup
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </form>
+    <div
+      className="w-full h-[100vh] flex items-center justify-center flex-col object-cover "
+      style={{ backgroundImage: `url(${auth})` }}
+    >
+     <div className="w-full h-full bg-black flex justify-center items-center opacity-70">
+     <form
+        className="w-[400px] h-[300px] ml-[350px] bg-gray-500 shadow-2xl  flex flex-col items-center  rounded-[20px]"
+        onSubmit={onSubmit}
+      >
+        <div className="mt-[20px] text-[30px] font-semibold text-black">
+          Signin
+        </div>
+
+        <div className="w-[300px] h-[40px] bg-white  mt-[30px] rounded-[40px]">
+          <input
+            type="text"
+            placeholder="Enter Email"
+            className="w-full h-full border-none placeholder:ml-5 outline-none bg-gray-300 bg-opacity-5 px-4"
+            {...register("email")}
+          />
+          {errors.email?.message && (
+            <div className="text-white text-[12px] flex justify-end">
+              invalid email address
+            </div>
+          )}
+        </div>
+        <div className="w-[300px] h-[40px] bg-white mt-[30px] rounded-[40px]">
+          <input
+            type="text"
+            placeholder="Password"
+            className="h-full border-none w-full placeholder:ml-5 outline-none bg-gray-300 bg-opacity-5 px-4"
+            {...register("password")}
+          />
+          {errors.password?.message && (
+            <div className="text-white text-[12px] flex justify-end">
+              Passwords can only contain numbers
+            </div>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          className="px-[15px] py-[5px] rounded-[5px] bg-black mt-5 text-white"
+        >
+          Signin
+        </button>
+        <div className="mt-[10px]">
+          <div>
+            Don't have an account?
+            <Link
+              to="/signup"
+              className="text-red-600 font-medium ml-[10px]"
+            >
+              Signup
+            </Link>
           </div>
         </div>
-      </div>
+      </form>
+     </div>
     </div>
   );
 };
 
-export default Signin;
+export default Signinscreen;

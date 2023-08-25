@@ -2,7 +2,9 @@ import { useState } from "react";
 import { GiLaurelCrown } from "react-icons/gi";
 // import { Link } from "react-router-dom"
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from "../../global/GlobalState";
 
 const MainHeader = () => {
   const [scroll, setScroll] = useState<boolean>(false);
@@ -22,6 +24,7 @@ const MainHeader = () => {
     setHover(!hover);
   };
 
+  const dispath = useDispatch()
   return (
     <div>
       {scroll ? (
@@ -70,7 +73,9 @@ const MainHeader = () => {
               onMouseLeave={onHover}
             >
               {hover ? (
-                <div className="absolute bg-black text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">
+                <div className="absolute bg-black text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer " onClick={() => {
+                  dispath(logOut())
+                }}>
                   Logout
                 </div>
               ) : null}

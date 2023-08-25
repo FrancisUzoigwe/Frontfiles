@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import pix from "../../assets/man.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterAPI } from "../../apis/UserAuthAPI";
+import auth from "../../assets/auth.webp"
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -39,20 +40,20 @@ const Signup = () => {
     myForms.append("email", email);
     myForms.append("password", password);
     myForms.append("avatar", image);
-    // console.log("result",myForms)
+    
 
     RegisterAPI(myForms).then((res) => {
-      console.log("result",res)
-      // navigate("/signin");
+      console.log("this the result",res)
+      navigate("/signin");
     });
   });
   return (
-    <div className="h-screen bg-blue-50 flex justify-center items-center overflow-hidden">
+    <div className="h-screen flex justify-center items-center overflow-hidden opacity-90 bg-black" style={{backgroundImage: `url(${auth})`}}>
       <div className="h-full w-full relative">
         <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center">
           <form
             onSubmit={onHandleSubmission}
-            className="h-[580px] w-[800px] bg-white flex rounded-[30px] shadow-md relative"
+            className="h-[580px] w-[800px] bg-white flex rounded-[30px] shadow-md relative ml-[400px]"
           >
             {/* Gradient Background */}
             <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-75 z-[-1] rounded-[30px]"></div>

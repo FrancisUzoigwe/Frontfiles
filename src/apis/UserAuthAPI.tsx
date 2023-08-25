@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const URL: string = "https://hack-project-management.onrender.com";
+// const URL: string = "https://hack-project-management.onrender.com";
+const URL: string = "http://localhost:3100/api/v1";
 
 export const RegisterAPI = async (data: any) => {
   try {
@@ -20,7 +21,7 @@ export const RegisterAPI = async (data: any) => {
 
 export const SigninAPI = async (data: any) => {
   try {
-    return await axios.post(`${URL}/sign-in`, data).then((res: any) => {
+    return await axios.post(`${URL}/signin`, data).then((res: any) => {
       return res.data.data;
     });
   } catch (error) {
