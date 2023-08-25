@@ -4,7 +4,7 @@ import { BsAlarm, BsFlagFill } from "react-icons/bs";
 import myImg from "../../assets/work.svg";
 import myImg2 from "../../assets/undraw_in_no_time_-6-igu.svg";
 import vides from "../../assets/videos.mp4";
-
+import Typewriter from "typewriter-effect"
 const LandingPage = () => {
   return (
     <div className="w-[auto] h-[auto] flex flex-col ">
@@ -16,9 +16,25 @@ const LandingPage = () => {
                 <div className="px-4 py-2 rounded-[20px] text-[gray] text-[14px] bg-white mt-2 font-semibold">
                   Product Design
                 </div>
-                <div className="mt-[10px] text-[25px] font-semibold">
-                  Mobile <br />
-                  Application
+                <div className="mt-[10px] text-[20px] font-semibold">
+                <Typewriter
+          options={{ loop: true }}
+          onInit={(typewriter: any) => {
+            typewriter
+
+              .typeString("Mobile Application..")
+              .pauseFor(1500)
+              .deleteAll()
+
+              .typeString("Desktop Application..")
+              .pauseFor(1500)
+              .deleteAll()
+
+              .typeString("Tablet Application..")
+              .pauseFor(1500)
+              .deleteAll()
+              .start();
+          }}/>
                 </div>
                 <div className="flex items-center mt-[10px] px-4 py-2 rounded-[20px]  bg-white text-[gray] text-[14px] font-semibold">
                   <div>
@@ -94,11 +110,30 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="w-[47%] h-[570px] flex flex-col ">
-            <div className="font-Poppins text-[40px] w-[550px] font-semibold mt-[140px]">
-              Manage All Of Your Work In One Place Efficiently{" "}
+            <div className="font-Poppins text-[45px] w-[550px] font-semibold mt-[130px]">
+              {/* Manage All Of Your Work In One Place Efficiently{" "}
               <span className="absolute mt-[6px] ml-1">
                 <GiSpikyExplosion className="w-[40px] h-[40px] " />
-              </span>
+              </span> */}
+              <Typewriter
+          options={{ loop: true }}
+          onInit={(typewriter: any) => {
+            typewriter
+
+              .typeString("Manage All Your Work....")
+              .pauseFor(1500)
+              .deleteAll()
+
+              .typeString("Write Them Down ...")
+              .pauseFor(1500)
+              .deleteAll()
+
+              .typeString("Do Hard Things...")
+              .pauseFor(1500)
+              .deleteAll()
+              .start();
+          }}
+        />
             </div>
             <div className="w-[320px] font-Poppins font-extrabold text-[14px] mt-[5px]  text-[#444444]">
               Manage your work, timelines and team mates all at once.. Set and
@@ -143,7 +178,22 @@ const LandingPage = () => {
                   Branding
                 </div>
                 <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
-                  Illustrations
+                  Backend
+                </div>
+                <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
+                  Frontend
+                </div>
+                <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
+                  Full-Stack
+                </div>
+                <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
+                  Graphics Designer
+                </div>
+                <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
+                  PhotoShop
+                </div>
+                <div className=" px-6 py-2 border border-[gray] m-1 cursor-pointer font-Poppins rounded-[20px] mt-[17px] text-[14px]">
+                  Artificial Intelligence
                 </div>
               </div>
             </div>
