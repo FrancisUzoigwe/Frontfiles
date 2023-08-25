@@ -93,7 +93,7 @@ const LandingPage = () => {
               </div>
               <div className="w-[200px] h-[300px] rounded-[40px]  flex flex-col items-center justify-center">
                 <div className="w-[180px] h-[100px] rounded-[25px] border border-dotted mb-[15px] flex items-center justify-center">
-                 <Link to="/signin">
+                 <Link to="/ask">
                  <div className=" flex items-center flex-col justify-center">
                     <div>
                       <BsAlarm />

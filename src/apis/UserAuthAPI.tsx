@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const URL: string = "https://hack-project-management.onrender.com";
+// const URL: string = "https://hack-project-management.onrender.com/api";
 const URL: string = "http://localhost:3100/api/v1";
 
 export const RegisterAPI = async (data: any) => {
