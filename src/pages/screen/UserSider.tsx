@@ -1,13 +1,22 @@
 import { GiLaurelCrown } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
-import pix from "../../assets/man.svg";
+// import pix from "../../assets/man.svg";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../global/GlobalState";
+import { useEffect, useState } from "react";
+import { readUserAPI } from "../../apis/UserAuthAPI";
 
 const UserSider = () => {
   const dispatch = useDispatch();
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
+  const [state, setState] = useState<[]>([]);
+
+  useEffect(() => {
+    readUserAPI().then((res) => {
+      setState(res);
+    });
+  }, []);
   return (
     <div className="w-[170px] h-[100vh] bg-red-400 fixed flex  items-center flex-col">
       <div>
@@ -53,23 +62,29 @@ const navigate = useNavigate()
         </Link>
       </div>
       <div className="w-[200px] mt-[90px]">
-        <div className="mt-[60px] flex flex-col items-center w-[full] h-[130px] ">
-          <div className="w-[45px] h-[45px] rounded-[50%] overflow-hidden bg-white">
-            <img src={pix} alt="" className="w-full h-full " />
-          </div>
-          <div className="mt-[5px] text-[14px]">User name</div>
-          <div className="text-[11px] font-semibold">User email</div>
+        |
+        {state?.map((el: any) => (
           <div
-            className="px-5 py-1 rounded-[15px] bg-white text-black mt-1.5 font-semibold hover:scale-95 cursor-pointer duration-300"
-            onClick={() => {
-              dispatch(logOut());
-              navigate("/ask")
-              // console.log("I've been clicked");
-            }}
+            key={el._id}
+            className="mt-[60px] flex flex-col items-center w-[full] h-[130px] "
           >
-            Logout
+            <div className="w-[45px] h-[45px] rounded-[50%] overflow-hidden bg-white">
+              <img src={el.avatar} alt="" className="w-full h-full " />
+            </div>
+            <div className="mt-[5px] text-[14px]">{el.name}</div>
+            <div className="text-[11px] font-semibold">{el.email}</div>
+            <div
+              className="px-5 py-1 rounded-[15px] bg-white text-black mt-1.5 font-semibold hover:scale-95 cursor-pointer duration-300"
+              onClick={() => {
+                dispatch(logOut());
+                navigate("/ask");
+                // console.log("I've been clicked");
+              }}
+            >
+              Logout
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

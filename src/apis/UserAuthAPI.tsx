@@ -31,7 +31,7 @@ export const SigninAPI = async (data: any) => {
 
 export const readUserAPI = async () => {
   try {
-    return await axios.get(`${URL}/get-user`).then((res: any) => {
+    return await axios.get(`${URL}/view`).then((res: any) => {
       return res.data.data;
     });
   } catch (error) {

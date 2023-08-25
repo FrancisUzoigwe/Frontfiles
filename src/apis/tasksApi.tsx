@@ -1,8 +1,7 @@
 import axios from "axios"
 
-
-const url: string = "https://hack-project-management.onrender.com/api"
-
+// const url: string = "https://hack-project-management.onrender.com/api"
+const url: string = "http://localhost:3100/api/v1";
 export const createTask = async (id: string, data: any) => {
     try {
         return await axios.post(`${url}/${id}/create-task`, data).then((res: any) => {
