@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import pix from "../../assets/man.svg"
+import pix from "../../assets/main.webp"
 import { Link } from "react-router-dom";
 const SignupUser = () => {
   const schema = yup.object({
@@ -70,7 +70,7 @@ const SignupUser = () => {
               </div>
             </div>
             <div className="h-[550px] w-[400px] p-8">
-              <h1 className="font-semibold text-3xl mb-6">Get Started</h1>
+              <h1 className="font-semibold text-3xl mb-6 ml-[70px]">Get Started</h1>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold">Name</label>

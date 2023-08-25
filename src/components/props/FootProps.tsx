@@ -9,7 +9,7 @@ interface iHidden {
 
 const FootProps: React.FC<iHidden> = ({hidden}) => {
   return (
-    <div>
+    <div id="about" >
         <div className="w-full h-auto flex justify-center flex-col items-center bg-black">
       <div className={`text-white flex items-center ${hidden} justify-center w-[45%] h-[65px] bg-purple-700 mt-[-30px]`}>
         <div className="uppercase">
@@ -93,6 +93,9 @@ const FootProps: React.FC<iHidden> = ({hidden}) => {
             </div>
             <div className="text-[12px] hover:text-gray-400 duration-300 cursor-pointer mt-2 text-left">
               Jonathan Wisdom
+            </div>
+            <div className="text-[12px] hover:text-gray-400 duration-300 cursor-pointer mt-2 text-left">
+              Blessing Chukwuyenum
             </div>
           </div>
         </div>

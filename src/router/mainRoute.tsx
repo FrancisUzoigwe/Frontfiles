@@ -7,7 +7,6 @@ import MainLayout from "../components/common/MainLayout";
 import HomeScreen from "../pages/screen/HomeScreen";
 import ViewScreen from "../pages/screen/ViewScreen";
 import ErrorPage from "../error/Error";
-// import PrivateRoute from "./PrivateRoute";
 import CreateTask from "../pages/screen/CreateTask";
 import AdminSignin from "../pages/admin/AdminSignin";
 import AdminSignup from "../pages/admin/AdminSignup";
@@ -19,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import AdminTasks from "../pages/admin/AdminTasks";
 import AdminProgress from "../pages/admin/AdminProgress";
 import Ask from "../pages/auth/Ask";
+// import UserLayOut from "../components/common/UserLayOut";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -68,6 +68,7 @@ export const mainRoute = createBrowserRouter([
         element: <ViewScreen />,
       },
       {
+        index: true,
         path: "/access/create",
         element: <CreateTask />,
       },
@@ -76,7 +77,7 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      // <AdminRoute>
+      <AdminRoute>
         <AdminLayout />
       // </AdminRoute>
     ),

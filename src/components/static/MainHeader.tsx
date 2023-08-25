@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiLaurelCrown } from "react-icons/gi";
 // import { Link } from "react-router-dom"
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from "../../global/GlobalState";
+import { readUserAPI } from "../../apis/UserAuthAPI";
 
 const MainHeader = () => {
   const [scroll, setScroll] = useState<boolean>(false);
@@ -22,6 +25,13 @@ const MainHeader = () => {
     setHover(!hover);
   };
 
+  const dispath = useDispatch();
+  const [state, setState] = useState<[]>([]);
+  useEffect(() => {
+    readUserAPI().then((res) => {
+      setState(res);
+    });
+  }, []);
   return (
     <div>
       {scroll ? (
@@ -33,16 +43,21 @@ const MainHeader = () => {
               </div>
               <div className="ml-[7px] font-Poppins mt-[3px]">Monao</div>
             </div>
-            {/* <div className="cursor-pointe">About Us</div> */}
-            {/* <div>
-                <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Logout</Link>
-            </div> */}
-            <div className="flex items-center cursor-pointer" onMouseEnter={onHover} onMouseLeave={onHover}>
-              {
-                hover? <div className="absolute bg-gray-700 text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">Logout</div>: null
-              }
-              <div className="w-[40px] h-[40px] rounded-[50%] bg-white mr-[5px] flex items-center justify-center">Img</div>
-              <div className="font-semibold text-[13px] ml-[px] ">Username</div>
+
+            <div
+              className="flex items-center cursor-pointer"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+            >
+              {hover ? (
+                <div className="absolute bg-gray-700 text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">
+                  Logout
+                </div>
+              ) : null}
+              <div className="w-[40px] h-[40px] rounded-[50%] text-white mr-[5px] flex items-center justify-center">
+                Img
+              </div>
+              <div className="font-semibold text-[13px] ml-[px] ">{}</div>
               <div>
                 <MdOutlineArrowDropDown />
               </div>
@@ -58,31 +73,33 @@ const MainHeader = () => {
               </div>
               <div className="ml-[7px] font-Poppins mt-[3px]">Monao</div>
             </div>
-            {/* <div>Create task</div> */}
-            {/* <div className="cursor-pointe">About Us</div> */}
-            {/* <div>
-                <Link to="/signin" className="px-8 py-2 rounded-[30px] border border-[grey]  font-Poppins">Logout</Link>
-            </div> */}
-            <div className="w-[80%] h-[40px] flex items-center justify-end">
-              <div>Create task</div>
-            </div>
+
             <div
               className="flex items-center cursor-pointer"
               onMouseEnter={onHover}
               onMouseLeave={onHover}
             >
               {hover ? (
-                <div className="absolute bg-black text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer ">
+                <div
+                  className="absolute bg-black text-white px-8 py-2 rounded text-[14px] font-semibold mt-[60px] ml-[15px] cursor-pointer "
+                  onClick={() => {
+                    dispath(logOut());
+                  }}
+                >
                   Logout
                 </div>
               ) : null}
-              <div className="w-[40px] h-[40px] rounded-[50%] bg-black mr-[5px] flex items-center justify-center">
-                Img
-              </div>
-              <div className="font-semibold text-[13px] ml-[px] ">Username</div>
-              <div>
-                <MdOutlineArrowDropDown />
-              </div>
+              
+                  <div className="w-[40px] h-[40px] rounded-[50%] bg-black mr-[5px] flex items-center justify-center">
+                    <img src={""} alt="" />
+                  </div>
+                  <div className="font-semibold text-[13px] ml-[px] ">
+                    username
+                  </div>
+                  <div>
+                    <MdOutlineArrowDropDown />
+                  </div>
+            
             </div>
           </div>
         </div>
