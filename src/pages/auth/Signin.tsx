@@ -12,7 +12,7 @@ const Signinscreen = () => {
   const navigate = useNavigate();
 
   const Schema = yup.object({
-    email: yup.string().required().email(),
+    email: yup.string().required(),
     password: yup.string().required(),
   });
 
@@ -26,8 +26,6 @@ const Signinscreen = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     const { email, password } = data;
-
-    console.log(data);
     SigninAPI({ email, password }).then((res: any) => {
       dispatch(user(res));
       navigate("/access/create");
@@ -70,7 +68,7 @@ const Signinscreen = () => {
             />
             {errors.password?.message && (
               <div className="text-white text-[12px] flex justify-end">
-                Passwords can only contain numbers
+                Invalid password
               </div>
             )}
           </div>

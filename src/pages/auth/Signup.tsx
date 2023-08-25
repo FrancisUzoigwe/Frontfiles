@@ -42,8 +42,7 @@ const Signup = () => {
     myForms.append("avatar", image);
     
 
-    RegisterAPI(myForms).then((res) => {
-      console.log("this the result",res)
+    RegisterAPI(myForms).then(() => {
       navigate("/signin");
     });
   });
